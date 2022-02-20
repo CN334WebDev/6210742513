@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import NattaponPDF from '../assets/data/Resume Nattapon.pdf'
 import styled from 'styled-components';
 import PText from '../components/PText';
 import Button from '../components/Button';
@@ -74,6 +76,18 @@ const AboutPageStyles = styled.div`
 `;
 
 export default function About() {
+  const [data, setData] = useState({ users: [] });
+
+useEffect(async () => {
+  const result = await axios(
+    'http://localhost:8000/api/products',
+  );
+
+  setData({ 
+    users: result.data 
+  });
+}, []);
+
   return (
     <>
       <AboutPageStyles>
@@ -85,37 +99,39 @@ export default function About() {
               </p>
               <h2 className="about__heading">Software Engineer</h2>
               <div className="about__info">
-                <PText>
+              {data.users.map((user) => (
+                <PText key={user.id}>
                   
-                  <br /> <br />
+                  <br /> {user.inaboutme} <br />
                   
                   <br />
                   <br />
                   
                 </PText>
+                 ))}
               </div>
-              <Button btnText="Download Resume" btnLink="#" />
+              <Button btnText="Download Resume" btnLink="" />
             </div>
             <div className="right">
               <img src={AboutImg} alt="me" />
             </div>
           </div>
+          {data.users.map((user) => (
           <div className="about__info__items">
             <div className="about__info__item">
-              <h1 className="about__info__heading">Education</h1>
+              <h1 key={user.id} key={user.id}className="about__info__heading">Education</h1>
 
               <AboutInfoItem
                 title="School"
-                items={['']}
+                items={['Nakhonsawan School']}
               />
-              <AboutInfoItem
+              
+              <AboutInfoItem  
                 title="Collage"
-                items={['']}
+                items={['Thammasat University']}
               />
-              <AboutInfoItem
-                title="Varsity"
-                items={['']}
-              />
+              
+              
             </div>
             <div className="about__info__item">
               <h1 className="about__info__heading">My Skills</h1>
@@ -131,15 +147,18 @@ export default function About() {
               
             </div>
             <div className="about__info__item">
-              <h1 className="about__info__heading">Experiences</h1>
+              <h1 key={user.id} className="about__info__heading">Experiences</h1>
 
-              
+             
               <AboutInfoItem
                 title="2019-"
-                items={['']}
+                items={['Third year of Software Engineering student from Thammasat University.']}
               />
+              
             </div>
+            
           </div>
+          ))}
         </div>
         <ContactBanner />
       </AboutPageStyles>

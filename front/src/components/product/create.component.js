@@ -12,7 +12,11 @@ export default function CreateProduct() {
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  // const [telephone, setTelephone] = useState("")
+  const [aboutme, setAboutme] = useState("")
+  const [collage, setCollage] = useState("")
+  const [inaboutme, setInaboutme] = useState("")
+  const [experience, setExperience] = useState("")
+
   // const [email, setEmail] = useState("")
   const [image, setImage] = useState();
   const [validationError, setValidationError] = useState({});
@@ -28,7 +32,11 @@ export default function CreateProduct() {
 
     formData.append("title", title);
     formData.append("description", description);
-    // formData.append('telephone', telephone)
+    formData.append('aboutme', aboutme)
+    formData.append('collage', collage)
+    formData.append('inaboutme', inaboutme)
+    formData.append('experience', inaboutme)
+
     // formData.append('email', email)
     formData.append("image", image);
 
@@ -107,17 +115,49 @@ export default function CreateProduct() {
                       </Form.Group>
                     </Col>
                   </Row>
-                  {/* <Row> 
+                  <Row> 
                       <Col>
-                        <Form.Group controlId="Telephone">
-                            <Form.Label>Telephone</Form.Label>
-                            <Form.Control type="text" value={telephone} onChange={(event)=>{
-                              setTelephone(event.target.value)
+                        <Form.Group controlId="Aboutme">
+                            <Form.Label>Aboutme</Form.Label>
+                            <Form.Control type="text" value={aboutme} onChange={(event)=>{
+                              setAboutme(event.target.value)
                             }}/>
                         </Form.Group>
                       </Col>  
                   </Row>
                   <Row> 
+                      <Col>
+                        <Form.Group controlId="Collage">
+                            <Form.Label>Collage</Form.Label>
+                            <Form.Control type="text" value={collage} onChange={(event)=>{
+                              setCollage(event.target.value)
+                            }}/>
+                        </Form.Group>
+                      </Col>  
+                  </Row>
+                  <Row> 
+                      <Col>
+                        <Form.Group controlId="Inaboutme">
+                            <Form.Label>Inaboutme</Form.Label>
+                            <Form.Control type="text" value={inaboutme} onChange={(event)=>{
+                              setInaboutme(event.target.value)
+                            }}/>
+                        </Form.Group>
+                      </Col>  
+                  </Row>
+                  <Row> 
+                      <Col>
+                        <Form.Group controlId="Experience">
+                            <Form.Label>Experience</Form.Label>
+                            <Form.Control type="text" value={experience} onChange={(event)=>{
+                              setExperience(event.target.value)
+                            }}/>
+                        </Form.Group>
+                      </Col>  
+                  </Row>
+
+
+                  {/* <Row> 
                       <Col>
                         <Form.Group controlId="Email">
                             <Form.Label>Email</Form.Label>

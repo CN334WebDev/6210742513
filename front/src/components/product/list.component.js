@@ -86,6 +86,11 @@ export default function List() {
                     <th style={{ fontFamily: "Droid Sans",fontSize: 20 }}>Email</th> */}
                     <th style={{ fontFamily: "Droid Sans",fontSize: 20 }}>Project Image</th>
                     <th style={{ fontFamily: "Droid Sans",fontSize: 20 }}>Actions</th>
+                    <th style={{ fontFamily: "Droid Sans",fontSize: 20 }}>About Me</th>
+                    <th style={{ fontFamily: "Droid Sans",fontSize: 20 }}>Collage</th>
+                    <th style={{ fontFamily: "Droid Sans",fontSize: 20 }}>In About Me</th>
+                    <th style={{ fontFamily: "Droid Sans",fontSize: 20 }}>Experience</th>
+
                   </tr>
                 </thead>
                 <tbody>

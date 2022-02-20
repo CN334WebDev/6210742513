@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
 import styled from "styled-components";
 import Button from "./Button";
 import PText from "./PText";
@@ -72,15 +74,28 @@ const AboutSectionStyles = styled.div`
 `;
 
 export default function AboutSection() {
+  const [data, setData] = useState({ users: [] });
+
+useEffect(async () => {
+  const result = await axios(
+    'http://localhost:8000/api/products',
+  );
+
+  setData({ 
+    users: result.data 
+  });
+}, []);
   return (
     <AboutSectionStyles>
+      
       <div className="container">
         <div className="aboutSection__left">
           <SectionTitle subheading="" heading="About Me" />
-          <PText className="info">
-            My name is Nattapon Khajornkasirat I am currently studying at
-            Thammasat University with a major in software engineering.
+          {data.users.map((user) => (
+          <PText key={user.id} className="info">
+            {user.aboutme}
           </PText>
+           ))}
           <div className="aboutSection__buttons">
             <Button btnText="Works" btnLink="/projects" />
             <Button btnText="Read More" btnLink="/about" outline />

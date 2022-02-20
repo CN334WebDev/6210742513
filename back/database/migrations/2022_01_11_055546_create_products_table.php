@@ -17,8 +17,10 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('description');
-            // $table->text('telephone');
-            // $table->text('email');
+            $table->text('aboutme');
+            $table->text('collage');
+            $table->text('inaboutme');
+            $table->text('experience');
             $table->text('image');
             $table->timestamps();
         });
