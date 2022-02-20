@@ -95,7 +95,7 @@ export default function List() {
                         <td style={{ fontFamily: "Droid Sans",fontSize: 18, textAlign: "center" }}>
                           {row.title}
                         </td>
-                        <td style={{ fontFamily: "Droid Sans",fontSize: 18,width: 400, textAlign: "left" }}>
+                        <td style={{ fontFamily: "Droid Sans",fontSize: 18, textAlign: "left" }}>
                           {row.description}
                         </td>
                         <td>
