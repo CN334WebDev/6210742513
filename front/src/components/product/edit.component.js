@@ -25,7 +25,7 @@ export default function EditUser() {
 
   const fetchProduct = async () => {
     await axios.get(`http://localhost:8000/api/products/${id}`).then(({data})=>{
-      const { title, description, telephone, email } = data.product
+      const { title, description } = data.product
       setTitle(title)
       setDescription(description)
       // setTelephone(telephone)
@@ -50,8 +50,8 @@ export default function EditUser() {
     formData.append('_method', 'PATCH');
     formData.append('title', title)
     formData.append('description', description)
-    formData.append('telephone', telephone)
-    formData.append('email', email)
+    // formData.append('telephone', telephone)
+    // formData.append('email', email)
     if(image!==null){
       formData.append('image', image)
     }
