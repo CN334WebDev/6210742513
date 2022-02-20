@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import SectionTitle from './SectionTitle';
 import ServicesSectionItem from './ServicesSectionItem';
 
+
+
 const ServicesItemsStyles = styled.div`
   padding: 10rem 0;
   .services__allItems {

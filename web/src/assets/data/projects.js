@@ -3,7 +3,10 @@ import KruChana from '../images/KruChana.jpg';
 import OneForAll from '../images/OneForAll.jpg';
 import FaceRegcognition from '../images/FaceReg.jpg';
 
+
+
 const projects = [
+  
   {
     id: uuidv4(),
     name: 'Kru Chana',
@@ -25,6 +28,7 @@ const projects = [
       'The website is used to verify that a student\'s face matches the face on their student card.',
     img: FaceRegcognition,
   },
+  
   
 ];
 

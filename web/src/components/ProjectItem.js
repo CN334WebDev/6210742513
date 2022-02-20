@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import ProjectImg from '../assets/images/projectImg.png';
@@ -38,20 +40,42 @@ const ProjectItemStyles = styled.div`
 
 export default function ProjectItem({
   img = ProjectImg,
-  title = 'Project Name',
-  desc = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+  // title = 'Project Name',
+  // desc = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
 }) {
+
+  const [data, setData] = useState({ users: [] });
+
+useEffect(async () => {
+  const result = await axios(
+    'http://localhost:8000/api/products',
+  );
+
+  setData({ 
+    users: result.data 
+  });
+}, []);
+
   return (
     <ProjectItemStyles>
+
+
+
       <Link to="/projects" className="projectItem__img">
         <img src={img} alt="project img" />
       </Link>
+      
+      {data.users.map((user) => (
       <div className="projectItem__info">
         <Link to="#">
-          <h3 className="projectItem__title">{title}</h3>
+          <h3 key={user.id} className="projectItem__title">{user.title}</h3>
         </Link>
-        <p className="projectItem__desc">{desc}</p>
+        <p key={user.id} className="projectItem__desc">{user.description}</p>
       </div>
+      ))}
+
+
+
     </ProjectItemStyles>
   );
 }
